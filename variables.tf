@@ -11,7 +11,7 @@ variable "type" {
 
 variable "key" {
     type = string
-    default = "aws_italiandevops"
+    default = "aws"
 }
 variable "name" {
     type = string
