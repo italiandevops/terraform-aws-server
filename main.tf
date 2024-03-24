@@ -9,7 +9,7 @@ resource "aws_vpc" "web_vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-vpc"
+    Name = "web-vpc"
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "web_internet_gateway" {
   vpc_id = aws_vpc.web_vpc.id
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-igw"
+    Name = "web-igw"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "web_public_subnet_az1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-public-az1"
+    Name = "web-public-az1"
   }
 }
 
@@ -52,7 +52,7 @@ resource "aws_route_table" "web_public_route_table" {
   }
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-public-rt"
+    Name = "web-public-rt"
   }
 }
 
@@ -74,7 +74,7 @@ resource "aws_security_group" "web_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["XXX/32"]
   }
 
   ingress {

@@ -7,16 +7,6 @@ output "region" {
   value = var.region
 }
 
-# export the project name
-output "project_name" {
-  value = var.project_name
-}
-
-# export the environment
-output "environment" {
-  value = var.environment
-}
-
 # export the vpc id
 output "vpc_id" {
   value = aws_vpc.web_vpc.id
@@ -43,7 +33,7 @@ output "availability_zone_1" {
 
 output "security_group_id" {
   description = "The ID of the security group"
-  value       = aws_security_group.example.id
+  value       = aws_security_group.web_sg.id
 }
 
 ###################################################
